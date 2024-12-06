@@ -1,0 +1,26 @@
+{
+  "name": "mr-clarity",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.1"
+  },
+  "dependencies": {
+    "@cloudinary/url-gen": "^1.21.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "axios": "^1.7.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.5",
+    "react-lottie": "^1.2.10",
+    "react-router-dom": "^7.0.2",
+    "sweetalert2": "^11.14.5",
+    "two-up-element": "^1.0.1"
+  }
+}

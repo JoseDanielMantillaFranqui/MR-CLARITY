@@ -1,0 +1,357 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main__container {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-sizing: border-box;
+  background-image: url('https://i.gifer.com/72eL.gif');
+}
+
+.interface {
+  background-color: #0000005e;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: max-content;
+  position: relative;
+}
+
+.interface__card {
+  width: 50%;
+  background: linear-gradient(to bottom right, #0427c583, #639fff85, #0427c583);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(3px);
+  border-radius: 25px;
+  min-height: max-content;
+  margin: 1rem 0;
+}
+
+.interface::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  backdrop-filter: contrast(0.5);
+}
+
+.card__title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  font-style: italic;
+  color: #5b99ee;
+  text-shadow: 2px 2px 1px #025de4;
+  margin-bottom: 1rem;
+}
+
+.card__image {
+  width: 300px;
+  border-radius: 25px;
+
+}
+
+.my-two-up {
+  /* Color of the track & thumb */
+  --accent-colour: #344599;
+  /* Or you can set the two independently: */
+  --track-color: #417fd6;
+  --thumb-color: #023f9a;
+  /* Background of the thumb */
+  --thumb-background: #417fd6;
+  /* Size of the thumb */
+  --thumb-size: 50px;
+  /* Thickness of the bar */
+  --bar-size: 6px;
+  /* Touch-thickness of the bar */
+  --bar-touch-size: 30px;
+}
+
+.card__buttonToForm {
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  font-style: italic;
+  color: #023f9a;
+  padding: 1rem 2rem;
+  border: 5px solid #023f9a;
+  border-radius: 50px;
+  transition: 0.4s all;
+  text-align: center;
+}
+
+.card__buttonToForm:hover {
+  color: rgb(240, 239, 239);
+  background-color: #023f9a;
+}
+
+.card__button {
+  margin: 2rem 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.dropzone {
+  width: 90%;
+  height: 100px;
+  border: 3px dashed #031f9b83;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0427c583;
+  border-radius: 25px;
+  transition: 0.5s all;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.dropzone:focus {
+  border-color: #ffffff;
+}
+
+.dropzone__active {
+  border-color: #ffffff;
+}
+
+.dropzone__text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #5b99ee;
+  text-shadow: 2px 2px 1px #025de4;
+  text-align: center;
+}
+
+.dropzone__loading {
+  background-color: #0427c583;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.dropzone__filename {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #5b99ee;
+  text-shadow: 2px 2px 1px #025de4;
+  width: 90%;
+}
+
+.dropzone__image {
+  width: 50px;
+  border-radius: 5px;
+}
+
+.loading__borderBar {
+  width: 90%;
+  border-radius: 25px;
+  height: 20px;
+  border: 2px solid #0427c583;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading__borderBar::before {
+  content: attr(uploadprogress);
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5b99ee;
+  text-shadow: 2px 2px 1px #025de4;
+  align-self: center;
+}
+
+.loading__bar {
+  width: 50%;
+  height: 100%;
+  border-radius: 25px;
+  background-color: #0427c583;
+  align-self: flex-start;
+}
+
+.card__buttonToResponse {
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  font-style: italic;
+  color: #023f9a;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 5px solid #023f9a;
+  border-radius: 50px;
+  transition: 0.4s all;
+  cursor: pointer;
+  text-align: center;
+}
+
+.card__buttonToResponse:hover {
+  color: rgb(240, 239, 239);
+  background-color: #023f9a;
+}
+
+.swal2-popup {
+  border-radius: 25px;
+  padding: 0;
+  background: linear-gradient(to bottom right, #c5040483, #ff636385, #c5040483);
+  font-family: Tahoma, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+
+.swal2-container {
+  backdrop-filter: blur(8px);
+}
+
+.swal2-container .swal2-html-container {
+  color: #ffffff;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 0 1rem;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  background-color: transparent;
+  overflow-y: hidden;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+.swal2-html-container p {
+  font-weight: 700;
+
+}
+
+.swal2-actions {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 1rem 0;
+}
+
+.swal2-actions .swal2-confirm  {
+
+  box-shadow: none !important;
+  filter: drop-shadow(0);
+  outline: none;    
+  user-select: none;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #ffffffa4;
+  background-color: transparent;   
+  border: 2px solid #ffffff31;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: 0.5s all;
+  cursor: pointer;
+  text-shadow: 1px 1px 2px #cccacad7;
+  margin-top: 2rem;
+}
+
+.swal2-actions .swal2-confirm:hover {
+  border-color: #ffffffa4;
+}
+
+.error__icon {
+  width: 60%;
+  margin: 1rem 0;
+  border-radius: 100%;
+}
+
+.card__imageResponse {
+  width: 80%;
+  border-radius: 25px;
+}
+
+.card__buttonToDownload {
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  font-style: italic;
+  color: #023f9a;
+  padding: 1rem 2rem;
+  border: 5px solid #023f9a;
+  border-radius: 50px;
+  transition: 0.4s all;
+  text-align: center;
+}
+
+.card__buttonToDownload:hover {
+  color: rgb(240, 239, 239);
+  background-color: #023f9a;
+}
+
+.card__loading {
+  width: 40%;
+  border-radius: 25px;
+}
+
+@media screen and (max-width:480px) {
+  .interface__card {
+    width: 90%;
+  }
+
+  .card__buttonToForm {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+
+  .card__buttonToResponse {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+
+  .card__buttonToDownload {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width:481px) and (max-width:999px) {
+  .interface__card {
+    width: 80%;
+  }
+
+  .card__buttonToForm {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .card__buttonToResponse {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .card__buttonToDownload {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}
