@@ -311,30 +311,6 @@
   border-radius: 25px;
 }
 
-@media screen and (max-width:480px) {
-  .interface__card {
-    width: 90%;
-  }
-
-  .card__buttonToForm {
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-    text-align: center;
-  }
-
-  .card__buttonToResponse {
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-    text-align: center;
-  }
-
-  .card__buttonToDownload {
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-    text-align: center;
-  }
-}
-
 .card__footer {
   width: 100%;
   background-color: #0f9ff92d;
@@ -419,6 +395,34 @@
   }
 }
 
+@media screen and (max-width:480px) {
+  .interface__card {
+    width: 90%;
+  }
+
+  .card__buttonToForm {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+
+  .card__buttonToResponse {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+
+  .card__buttonToDownload {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+
+  .glitch {
+    font-size: 1rem;
+}
+}
+
 @media screen and (min-width:481px) and (max-width:999px) {
   .interface__card {
     width: 80%;
@@ -438,4 +442,8 @@
     font-size: 1.6rem;
     text-align: center;
   }
+
+  .glitch {
+    font-size: 1rem;
+}
 }
