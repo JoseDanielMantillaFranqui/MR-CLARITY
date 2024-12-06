@@ -126,7 +126,7 @@ const ClarityProvider = ({children}) => {
     const handleLoading = () => {
       setTimeout(() => {
         setLoading(true);
-      }, 5000); // 5000 ms = 5 segundos
+      }, 10000); // 5000 ms = 5 segundos
     };
     
 
