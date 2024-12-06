@@ -52,6 +52,9 @@ const Form = () => {
                     </div>
                 </div>}
                 <button className='card__buttonToResponse' onClick={handleClickForResponse} >Mejorar calidad de tu imagen</button>
+                <a href="https://daniels-portafolio.vercel.app/" className="card__footer">
+                        <p className="glitch" data-glitch="<> Daniel Franqui </>">{'<> Daniel Franqui </>'}</p>
+                </a> 
             </div>
         </div>
     </section>
