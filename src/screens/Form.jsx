@@ -24,6 +24,10 @@ const Form = () => {
                 return handleIncompletedForm('<img class="error__icon" src= "https://cdn.dribbble.com/users/251873/screenshots/9388228/error-img.gif"/><p>Debes subir una imagen</p>')
             }
 
+            if (uploadProgress !== 'Archivo subido') {
+                return handleIncompletedForm('<br><br><p>Espera un poco más</p>')
+            }
+
             handleUpscalingImg()
             handleLoading()
             navigate('/response')
