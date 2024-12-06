@@ -76,6 +76,7 @@ const ClarityProvider = ({children}) => {
     },[uploadedFile])
 
     const [response, setResponse] = useState('')
+    const [responseIMG, setResponseIMG] = useState('')
 
     const handleUpscalingImg = async () => {
       try {
@@ -91,6 +92,7 @@ const ClarityProvider = ({children}) => {
         }
     
         setResponse(obtenerURL); // Si la URL es válida, actualiza el estado
+        setResponseIMG(obtenerURL)
       } catch (error) {
         console.error("Error al realizar el upscale:", error.message);
     
@@ -128,7 +130,7 @@ const ClarityProvider = ({children}) => {
     };
     
 
-    return <ClarityContext.Provider value={{ onDrop, uploadProgress, selectedFiles, uploadedFile, handleIncompletedForm, handleUpscalingImg, response, loading, handleLoading}}>
+    return <ClarityContext.Provider value={{ onDrop, uploadProgress, selectedFiles, uploadedFile, handleIncompletedForm, handleUpscalingImg, response, loading, handleLoading, responseIMG}}>
         {children}
     </ClarityContext.Provider>
 }
