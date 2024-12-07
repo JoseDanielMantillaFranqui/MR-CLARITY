@@ -23,12 +23,12 @@ const ClarityProvider = ({children}) => {
     const uploadToCloudinary = async (file) => {
         const formData = new FormData();
         formData.append('file', file);
-        formData.append('upload_preset', import.meta.env.VITE_PRESET); // Reemplaza con tu upload preset
+        formData.append('upload_preset', import.meta.env.VITE_PRESET); 
     
         try {
           setUploading(true);
           const response = await axios.post(
-            'https://api.cloudinary.com/v1_1/dduz5dnhy/image/upload', // Reemplaza con tu cloud name
+            'https://api.cloudinary.com/v1_1/dduz5dnhy/image/upload',
             formData,
             {
               onUploadProgress: (progressEvent) => {
@@ -126,7 +126,7 @@ const ClarityProvider = ({children}) => {
     const handleLoading = () => {
       setTimeout(() => {
         setLoading(true);
-      }, 10000); // 5000 ms = 5 segundos
+      }, 15000); // 5000 ms = 5 segundos
     };
     
 
