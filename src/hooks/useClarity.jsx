@@ -3,6 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { CloudinaryImage } from "@cloudinary/url-gen"; // Para manejar imágenes
 import { upscale } from "@cloudinary/url-gen/actions/effect"; // Para aplicar el efecto de upscale
+import { set } from "@cloudinary/url-gen/actions/variable";
 
 const ClarityContext = createContext()
 
@@ -101,6 +102,10 @@ const ClarityProvider = ({children}) => {
           <p>Error: ${error.message}</p>
         `);
       }
+
+      finally {
+        setLoading(true)
+      }
     };
     
 
@@ -122,15 +127,9 @@ const ClarityProvider = ({children}) => {
     }, [response])
 
     const [loading, setLoading] = useState(false)
-
-    const handleLoading = () => {
-      setTimeout(() => {
-        setLoading(true);
-      }, 15000); // 5000 ms = 5 segundos
-    };
     
 
-    return <ClarityContext.Provider value={{ onDrop, uploadProgress, selectedFiles, uploadedFile, handleIncompletedForm, handleUpscalingImg, response, loading, handleLoading, responseIMG}}>
+    return <ClarityContext.Provider value={{ onDrop, uploadProgress, selectedFiles, uploadedFile, handleIncompletedForm, handleUpscalingImg, response, loading, responseIMG}}>
         {children}
     </ClarityContext.Provider>
 }

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
 
-    const {onDrop, uploadProgress, selectedFiles, uploadedFile, handleIncompletedForm, handleUpscalingImg, handleLoading} = useClarity()
+    const {onDrop, uploadProgress, selectedFiles, uploadedFile, handleIncompletedForm, handleUpscalingImg} = useClarity()
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept: {   'image/jpeg': [],
         'image/png': [],
         'image/webp': [],
@@ -29,7 +29,6 @@ const Form = () => {
             }
 
             handleUpscalingImg()
-            handleLoading()
             navigate('/response')
         }
 
