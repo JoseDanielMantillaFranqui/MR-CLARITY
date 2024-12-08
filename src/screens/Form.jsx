@@ -32,18 +32,21 @@ const Form = () => {
             navigate('/response')
         }
 
-        
+        const handleTitleToHome = () => {
+            navigate('/')
+        }
 
     return <>
     <section className="main__container">
         <div className="interface">
             <div className="interface__card">
-                <h1 className='card__title'>
+                <h1 className='card__title' onClick={handleTitleToHome}>
                     Mr. Clarity
                 </h1>
+                <img src='/resolution.svg' style={{width: '50%', maxWidth: '200px', marginBottom: '1rem'}}/>
                 { !selectedFiles?.name && <div {...getRootProps()} className={`dropzone ${isDragActive ? 'dropzone__active' : ''}`}>
                 <input {...getInputProps()} />
-                <p className='dropzone__text'>{isDragActive ? "Suelta la imagen aquí..." : "Arrastra y suelta la imagen a mejorar calidad"}</p>
+                <p className='dropzone__text'>{isDragActive ? "Suelta la imagen aquí..." : "Arrastra y suelta la imagen a mejorar resolución"}</p>
                 </div>}
                 { selectedFiles?.name && <div className='dropzone__loading'>
                     <p className='dropzone__filename'>{selectedFiles.name}</p>
@@ -54,7 +57,7 @@ const Form = () => {
                         <div className='loading__bar' style={{ width: `${uploadProgress}%`}}></div>
                     </div>
                 </div>}
-                <button className='card__buttonToResponse' onClick={handleClickForResponse} >Mejorar calidad de tu imagen</button>
+                <button className='card__buttonToResponse' onClick={handleClickForResponse} >Mejorar resolución de tu imagen</button>
                 <a href="https://daniels-portafolio.vercel.app/" className="card__footer">
                         <p className="glitch" data-glitch="<> Daniel Franqui </>">{'<> Daniel Franqui </>'}</p>
                 </a> 

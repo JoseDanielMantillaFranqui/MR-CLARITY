@@ -27,7 +27,7 @@ const Home = () => {
                         <img className='card__image' src='https://res.cloudinary.com/prod/image/upload/me/upscale-face-1'/>
                     </two-up>
                     <div className='card__button'>
-                        <Link className='card__buttonToForm' to={'/form'}>Mejora la calidad de tu imagen ahora</Link>
+                        <Link className='card__buttonToForm' to={'/form'}>Mejora la resolución de tu imagen ahora</Link>
                         <Lottie
                             style={{ position: 'absolute', left: '0px', bottom: '40px', transform: 'rotate(190deg)' }} 
                             options={defaultOptions} 
