@@ -57,6 +57,7 @@
   color: #5b99ee;
   text-shadow: 2px 2px 1px #025de4;
   margin-bottom: 1rem;
+  user-select: none;
 }
 
 .card__image {
@@ -93,6 +94,7 @@
   border-radius: 50px;
   transition: 0.4s all;
   text-align: center;
+  user-select: none;
 }
 
 .card__buttonToForm:hover {
@@ -302,6 +304,7 @@
   transition: 0.4s all;
   text-align: center;
   cursor: pointer;
+  user-select: none;
 }
 
 .card__buttonToDownload:hover {
