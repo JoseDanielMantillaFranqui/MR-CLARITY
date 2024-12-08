@@ -5,6 +5,7 @@ import { CloudinaryImage } from "@cloudinary/url-gen"; // Para manejar imágenes
 import { upscale } from "@cloudinary/url-gen/actions/effect"; // Para aplicar el efecto de upscale
 import { set } from "@cloudinary/url-gen/actions/variable";
 
+
 const ClarityContext = createContext()
 
 export const useClarity = () => useContext(ClarityContext)
@@ -47,9 +48,20 @@ const ClarityProvider = ({children}) => {
         }
       };
 
+      const modifyFileName = (file) => {
+        const randomNum = Math.floor(Math.random() * 100) + 1; // Genera un número aleatorio entre 1 y 100
+        const fileExtension = file.name.split('.').pop(); // Obtiene la extensión del archivo
+        const baseName = file.name.replace(`.${fileExtension}`, ''); // Obtiene el nombre base del archivo sin la extensión
+        const newFileName = `${baseName}-${randomNum}.${fileExtension}`; // Crea el nuevo nombre
+      
+        const modifiedFile = new File([file], newFileName, { type: file.type });
+        return modifiedFile;
+      };
+
     useEffect(() => {
         if (selectedFiles?.name) {
-            uploadToCloudinary(selectedFiles)
+            const modifiedFile = modifyFileName(selectedFiles)
+            uploadToCloudinary(modifiedFile)
         }        
     }, [selectedFiles])
 
@@ -79,52 +91,40 @@ const ClarityProvider = ({children}) => {
     const [response, setResponse] = useState('')
     const [responseIMG, setResponseIMG] = useState('')
 
-    const handleUpscalingImg = async () => {
-      try {
+    const handleUpscalingImg = () => {
+      const form = new FormData();
+      form.append('upscale_factor', '4');
+      form.append('format', 'JPG');
+      form.append('image_url', uploadedFile.url);
     
-        const dynamicImage = new CloudinaryImage(publicID, { cloudName: "dduz5dnhy" });
-        const aplicarUpscale = dynamicImage.effect(upscale());
-        const obtenerURL = aplicarUpscale.toURL();
+      const options = {
+        method: 'POST',
+        url: 'https://api.picsart.io/tools/1.0/upscale',
+        headers: {
+          accept: 'application/json',
+          'X-Picsart-API-Key': import.meta.env.VITE_PICSART, // Asegúrate de que esta clave es válida
+        },
+        data: form, // Aquí pasamos directamente el FormData
+      };
     
-        // Verificar si la URL generada devuelve un resultado válido
-        const response = await axios.get(obtenerURL);
-        if (response.status !== 200) {
-          throw new Error("Error al realizar el upscale. Verifica los parámetros de la imagen.");
-        }
-    
-        setResponse(obtenerURL); // Si la URL es válida, actualiza el estado
-        setResponseIMG(obtenerURL)
-      } catch (error) {
-        console.error("Error al realizar el upscale:", error.message);
-    
-        handleIncompletedForm(`
-          <img class="error__icon" src="https://cdn.dribbble.com/users/251873/screenshots/9388228/error-img.gif" alt="Error" />
-          <p>Error: ${error.message}</p>
-        `);
-      }
-
-      finally {
-        setLoading(true)
-      }
+      axios
+        .request(options)
+        .then((res) => {
+          setResponse(res.data.data.url);
+          setResponseIMG(res.data.data.url);
+          console.log('Upscaling realizado con éxito:', res);
+        })
+        .catch((error) => {
+          console.error('Error al realizar el upscale:', error.message);
+          handleIncompletedForm(`
+            <img class="error__icon" src="https://cdn.dribbble.com/users/251873/screenshots/9388228/error-img.gif" alt="Error" />
+            <p>Error: ${error.message}</p>
+          `);
+        })
+        .finally(() => {
+          setLoading(true); // Cambié `true` a `false` porque la carga termina aquí
+        });
     };
-    
-
-    function agregarFlAttachment(url) {
-      const partes = url.split("/upload/");
-      if (partes.length === 2) {
-        return `${partes[0]}/upload/fl_attachment,${partes[1]}`;
-      }
-      // Si la URL no tiene el formato esperado, puedes devolver la original o manejar el error.
-      return url;
-    }
-
-    useEffect(() => {
-      
-      if (!response || response.includes("fl_attachment")) return;
-
-      const urlModificada = agregarFlAttachment(response)
-      setResponse(urlModificada)
-    }, [response])
 
     const [loading, setLoading] = useState(false)
     
