@@ -319,9 +319,11 @@
 
 .card__footer {
   width: 100%;
-  background-color: #0f9ff92d;
-  background-image: url('https://i.gifer.com/FM7o.gif');
+  background-color: #0f78f999;
+  background-image: url('https://i.gifer.com/Bg2B.gif');
   background-blend-mode: soft-light;
+  background-size: cover;
+  background-position: center;
   padding: 0.8rem;
   font-size: 1.3rem;
   font-style: italic;
@@ -333,14 +335,14 @@
   display: flex;
   justify-content: center;
   transition: all 0.5s;
-  border: 2px solid #ffffff34;
-  opacity: 0.8;
+  border: 2px solid #1d52a29d;
+  opacity: 0.7;
   margin-top: 1rem;
 }
 
 .card__footer:hover {
-  border: 2px solid #ffffffb6;
-  opacity: 1;
+  border: 2px solid #1061da9d;
+  opacity: 0.8;
 }
 
 .glitch {
@@ -399,6 +401,20 @@
   to {
      transform: translate(0);
   }
+}
+
+.interface__page404 {
+  background: #f8404062;
+}
+
+.interface__card__page404 {
+  background: linear-gradient(to bottom right, #62020283, #c73a3a85, #62020283);
+}
+
+.card__title__page404 {
+  color: #ee5b5b;
+  text-shadow: 2px 2px 1px #e40202;
+  text-align: center;
 }
 
 @media screen and (max-width:480px) {

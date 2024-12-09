@@ -1,6 +1,7 @@
 import Form from "./screens/Form"
 import Home from "./screens/Home"
 import Response from "./screens/Response"
+import Page404 from "./screens/Page404"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 
@@ -10,6 +11,7 @@ const App = () => {
       <Route path='/' element={<Home />} />
       <Route path='/form' element={<Form />} />
       <Route path='/response' element={<Response />} />
+      <Route path='*' element={ <Page404 />} />
     </Routes>
   </Router>
 }
