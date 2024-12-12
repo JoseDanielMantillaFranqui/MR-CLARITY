@@ -6,7 +6,7 @@ import axios from "axios"
 
 const Response = () => {
 
-    const { response, loading, responseIMG, handleIncompletedForm } = useClarity()
+    const { response, loading, responseIMG, handleIncompletedForm, uploadedFile } = useClarity()
 
     const navigate = useNavigate()
 
@@ -48,6 +48,11 @@ const Response = () => {
           `);
         }
       };
+
+      
+      useEffect(() => {
+        uploadedFile?.url ? null : navigate('/form')
+      }, [uploadedFile])
       
 
     return <>
